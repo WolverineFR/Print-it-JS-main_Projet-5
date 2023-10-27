@@ -57,10 +57,15 @@ slides.forEach((slide, index) => {
   dot.classList.add("dot"); // Ajoutez la classe "dot" à la div (en la nomant "dot")
   dotsContainer.appendChild(dot); // Ajoutez la div au conteneur "dots"
 
-  if (index === currentSlideIndex) {
+  if (index === 0) {
     dot.classList.add("dot_selected");
     // permet de remplir le premier dot par defaut
   }
+  dot.addEventListener("click", function () {
+    currentSlideIndex = index;
+    showSlide(currentSlideIndex);
+    updateDotSelection(currentSlideIndex);
+  });
 });
 
 // fonction changement point blanc quand index change
